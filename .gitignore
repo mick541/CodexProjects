@@ -26,3 +26,8 @@ app_before_*.py
 # Logs and temporary files
 *.log
 *.tmp
+
+.streamlit/secrets.toml
+.venv/
+__pycache__/
+.pytest_cache/
