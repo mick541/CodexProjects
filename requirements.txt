@@ -1,0 +1,7 @@
+streamlit
+openai
+pandas
+numpy
+requests
+pydantic
+python-multipart

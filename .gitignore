@@ -43,3 +43,5 @@ tore --staged --
 
 test_quality_modules_backup_*.py
 tore --staged -- 
+
+requirements-full.txt
