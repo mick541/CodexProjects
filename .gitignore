@@ -31,3 +31,15 @@ app_before_*.py
 .venv/
 __pycache__/
 .pytest_cache/
+
+# Local backups and reports
+backup_*/
+*_backup.py
+app_before_*.py
+*before_*.py
+*_report.txt
+*.jpg
+tore --staged -- 
+
+test_quality_modules_backup_*.py
+tore --staged -- 
