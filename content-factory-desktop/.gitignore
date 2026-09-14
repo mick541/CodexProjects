@@ -1,0 +1,28 @@
+# Local secrets — never commit
+.streamlit/
+.streamlit/secrets.toml
+**/secrets.toml
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Local databases and user data
+*.db
+*.sqlite
+*.sqlite3
+
+# Python cache and virtual environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Local backups
+app_before_*.py
+
+# Logs and temporary files
+*.log
+*.tmp

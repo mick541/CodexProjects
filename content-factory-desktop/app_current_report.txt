@@ -1,0 +1,24 @@
+
+Path                              LineNumber Line
+----                              ---------- ----
+C:\content-factory-desktop\app.py         54             "seo_brief": "TEXT",
+C:\content-factory-desktop\app.py        124 def run_seo_research(topic, source, audience):
+C:\content-factory-desktop\app.py        126 Проведи SEO-исследование перед написанием статьи.
+C:\content-factory-desktop\app.py        187 def generate_article(topic, source, audience, seo_brief):
+C:\content-factory-desktop\app.py        201 {json.dumps(seo_brief, ensure_ascii=False, indent=2)}
+C:\content-factory-desktop\app.py        236     seo_brief,
+C:\content-factory-desktop\app.py        249 {json.dumps(seo_brief, ensure_ascii=False, indent=2)}
+C:\content-factory-desktop\app.py        285     seo_brief,
+C:\content-factory-desktop\app.py        292              created_at, seo_brief, quality_report)
+C:\content-factory-desktop\app.py        300                     seo_brief.get("outline", []),
+C:\content-factory-desktop\app.py        307                     seo_brief,
+C:\content-factory-desktop\app.py        321                    status, created_at, seo_brief, quality_re…
+C:\content-factory-desktop\app.py        399 def get_seo_brief(item):
+C:\content-factory-desktop\app.py        416     seo_brief = get_seo_brief(item)
+C:\content-factory-desktop\app.py        421         primary_query=seo_brief.get(
+C:\content-factory-desktop\app.py        425         secondary_queries=seo_brief.get(
+C:\content-factory-desktop\app.py        429         related_topics=seo_brief.get(
+C:\content-factory-desktop\app.py        458         seo_brief_raw,
+C:\content-factory-desktop\app.py        520             seo_brief = get_seo_brief(item)
+C:\content-factory-desktop\app.py        529                         seo_brief=seo_brief,
+
