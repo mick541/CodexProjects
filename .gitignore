@@ -39,3 +39,8 @@ test_quality_modules_backup_*.py
 
 # Local dependency backup
 requirements-full.txt
+
+# Local catalog test and backup files
+catalogs/domains/_*.json
+catalogs/domains/*.json.backup-*
+catalogs/niches.json.backup-*
