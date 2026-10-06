@@ -1,4 +1,5 @@
 from fact_checker import check_article
+from cleaner.no_ai_slop import check_no_ai_slop, format_no_ai_slop_report
 from seo import check_seo, format_seo_report
 from dzen_rules import check_dzen_rules, format_dzen_report
 
@@ -16,15 +17,27 @@ def normalize_fact_result(result):
     normalized = dict(result)
 
     if "score" not in normalized:
+        requires_manual_review = bool(
+            normalized.get("requires_manual_review")
+        )
+        suspicious = normalized.get("suspicious") or []
+
         if normalized.get("passed") is True:
             normalized["score"] = 100
         elif normalized.get("passed") is False:
             normalized["score"] = 0
-        else:
+        elif requires_manual_review or suspicious:
             normalized["score"] = 50
+        else:
+            normalized["score"] = 100
 
     if "passed" not in normalized:
-        normalized["passed"] = normalized["score"] >= 70
+        if normalized.get("requires_manual_review"):
+            normalized["passed"] = False
+        elif normalized.get("suspicious"):
+            normalized["passed"] = False
+        else:
+            normalized["passed"] = normalized["score"] >= 70
 
     if "notes" not in normalized:
         notes = []
@@ -87,6 +100,8 @@ def run_quality_control(
         text=text,
     )
 
+    no_ai_slop_result = check_no_ai_slop(text)
+
     scores = [
         seo_result["score"],
         dzen_result["score"],
@@ -106,6 +121,7 @@ def run_quality_control(
         "facts": fact_result,
         "seo": seo_result,
         "dzen": dzen_result,
+        "no_ai_slop": no_ai_slop_result,
         "passed": passed,
     }
 
@@ -129,6 +145,8 @@ def format_quality_report(report):
         "",
         "ОТЧЁТ ПО ПРАВИЛАМ ДЗЕНА:",
         format_dzen_report(report["dzen"]),
+        format_no_ai_slop_report(report["no_ai_slop"]),
+        "",
         "",
         "ФАКТЧЕКИНГ:",
     ]
